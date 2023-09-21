@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+@forward "config/base";
+@use "config/base" as bs;
+
+#header {
+    height: 100vh;
+    background-image: url(../img/mainvisual.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-bottom: 20px;
+
+    @include bs.mq {
+        margin-bottom: 10px;
+    }
+
+    .site-title {
+        padding: 0 16px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        text-align: center;
+        
+        img {
+            max-width: 466px;
+            filter: drop-shadow(1px 1px 10px bs.$logo-shadow);
+
+            @include bs.mq {
+                width: calc(100vw - 32px);
+            }
+        }
+    }
+
+    #nav {
+        padding: 20px 40px;
+
+        .nav-list {
+            &.flex-container {
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            .nav-item {
+                margin-left: 30px;
+                text-transform: uppercase;
+
+                & > a {
+                    color: bs.$white;
+                    font-weight: bold;
+                    filter: drop-shadow(1px 1px 2px bs.$nav-shadow);
+                    transition: all .3s;
+
+                    &:hover {
+                        color: bs.$theme-color;
+                    }
+                }
+            }
+        }
+    }
+}

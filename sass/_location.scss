@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+@forward "config/base";
+@use "config/base" as bs;
+
+#location {
+    .location-image {
+        background-image: url(../img/location.jpg);
+    }
+
+    .googlemap-bw {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        
+        iframe {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    .location-text {
+        text-align: left;
+        line-height: bs.lh(24.4, 14.4);
+        margin-bottom: 10px;
+
+        a {
+            color: bs.$font-color;
+            pointer-events: none;
+
+            @include bs.mq {
+                pointer-events: auto;
+            }
+        }
+    }
+
+}

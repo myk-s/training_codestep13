@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+@forward "config/base";
+@use "config/base" as bs;
+
+#about {
+    .about-image {
+        background-image: url(../img/about.jpg);
+    }
+
+    & > .wrapper {
+        .sub-title {
+            margin-bottom: 87px;
+
+            @include bs.mq {
+                margin-bottom: 32px;
+            }
+        }
+
+        & > .flex-container {
+            align-items: flex-start;
+
+            @include bs.mq {
+                flex-direction: column;
+            }
+
+            .about-box {
+                width: 50%;
+                padding: 0 2%;
+                margin-bottom: 23px;
+
+                @include bs.mq {
+                    width: 100%;
+                    margin-bottom: 0;
+
+                    &:last-child {
+                        margin-bottom: 33px;
+                    }
+                }
+
+                .about-text {
+                    text-align: left;
+                    margin-bottom: 35px;
+
+                    @include bs.mq {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+
+        .read-more {
+            width: 160px;
+            height: 50px;
+            line-height: bs.lh(50, 14.4);
+            color: bs.$font-color;
+            display: inline-block;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 50%;
+                background-color: bs.$theme-color;
+                top: 0;
+                left: 0;
+                transition: all .3s ease;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 20%;
+                height: 2px;
+                background-color: bs.$theme-color;
+                top: 0;
+                left: 0;
+                transition: all .3s ease;
+            }
+
+            span {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 50%;
+                    background-color: bs.$theme-color;
+                    bottom: 0;
+                    right: 0;
+                    transition: all .3s ease;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 20%;
+                    height: 2px;
+                    background-color: bs.$theme-color;
+                    bottom: 0;
+                    right: 0;
+                    transition: all .3s ease;
+                }
+            }
+            
+            &:hover {
+                &::before {
+                    height: 100%;
+                }
+
+                &::after {
+                    width: 100%;
+                }
+
+                span {
+                    &::before {
+                        height: 100%;
+                    }
+    
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+@forward "config/base";
+@use "config/base" as bs;
+
+#footer {
+    & > p {
+        font-size: bs.rem(10);
+        text-align: center;
+        padding: 10px;
+    }
+}

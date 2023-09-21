@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@forward "config/base";
+@use "config/base" as bs;
+
+#menu {
+    .menu-image {
+        background-image: url(../img/menu.jpg);
+    }
+    & > .wrapper {
+        &.flex-container {
+            align-items: flex-start;
+
+            @include bs.mq {
+                flex-direction: column;
+            }
+
+            .menu-box {
+                width: 50%;
+                padding: 0 50px;
+
+                @include bs.mq {
+                    width: 100%;
+                    padding: 0;
+                }
+
+                &.menu-coffee {
+                    border-right: 1px solid bs.$black;
+
+                    @include bs.mq {
+                        border-right: none;
+                    }
+                }
+
+                .sub-title {
+                    &:nth-child(3) {
+                        margin-top: 55px;
+                        margin-bottom: 65px;
+
+                        @include bs.mq {
+                            margin-top: 0;
+                            margin-bottom: 25px;
+                        }
+                    }
+                }
+
+                .menu-list {
+                    &.flex-container {
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        flex-wrap: wrap;
+
+                        @include bs.mq {
+                            margin-bottom: 10px;
+                        }
+
+                        .menu-name {
+                            width: 85%;
+                            text-align: left;
+                            border-bottom: 1px dotted bs.$black;
+                            margin-bottom: 25px;
+                        }
+
+                        .menu-price {
+                            width: 15%;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

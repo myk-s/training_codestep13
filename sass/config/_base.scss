@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+@forward "color";
+@forward "function";
+@forward "mixin";
+@use "color" as c;
+@use "function" as f;
+@use "mixin" as m;
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body {
+    background-color: c.$white;
+    color: c.$font-color;
+    font-size: f.rem(14.4);
+    font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    vertical-align: top; // 画像の下の余白を消すため
+}
+li {
+    list-style: none;
+}
+
+.wrapper {
+    max-width: 1000px;
+    padding: 90px 16px 170px;
+    margin: 0 auto;
+    text-align: center;
+
+    @include m.mq {
+        padding: 30px 16px 80px;
+    }
+}
+.flex-container {
+    display: flex;
+}
+
+.site-title {
+    line-height: 1px;
+}
+.site-title a {
+    display: block;
+}
+.sec-title {
+    color: c.$white;
+    font-size: f.rem(72);
+    font-weight: bold;
+    line-height: f.lh(300, 72);
+    text-align: center;
+    text-transform: uppercase;
+    filter: drop-shadow(1px 1px 10px c.$logo-shadow);
+
+    @include m.mq {
+        font-size: f.rem(32);
+        line-height: f.lh(94, 32);
+    }
+}
+.sub-title {
+    display: inline-block;
+    color: c.$black;
+    font-size: f.rem(40);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    margin-bottom: 70px;
+    border-bottom: 6px solid c.$theme-color;
+
+    @include m.mq {
+        font-size: f.rem(20);
+        margin-bottom: 25px;
+    }
+}
+
+.bg-image {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    @include m.mq {
+        height: 94px;
+        background-attachment: scroll;
+    }
+}
